@@ -9,8 +9,8 @@ library(beepr)
 list_o_johns <- c()
 ## this allows us to move from page to page.  
 for (i in 1:20){
-url.1 <-"https://arizona.arrests.org/search.php?chargecode=15&page="
-url.2 <-"&fpartial=True&startdate=01%2F01%2F2017&enddate=12%2F31%2F2017"
+url.1 <-"INSERT FIRST HALF OF WEBSITE"
+url.2 <-"INSERT SECOND HALF OF WEBSITE"
 page <- i
 page <- as.character(page)
 url <- paste(url.1,page,url.2,sep = "")
@@ -35,6 +35,7 @@ list_o_johns
 list_o_johns <- as.data.frame(list_o_johns)
 list_o_johns <- drop_na(list_o_johns)
 list_o_johns <- list_o_johns$list_o_johns
+
 #### now for the crime extraction####
 master_df <- data.frame(name.2=NA,date.1=NA, gender.2=NA, height.2=NA,wieght.2=NA,prosecution=NA, state = NA, county = NA)
 master_df
@@ -105,6 +106,5 @@ Sys.sleep(round(runif(1,2,4)))
 master_df
 
 beep(8)
-# currently I've just added the state and county into the dataframe. I'm encountering issues when applying it to dataframes that 
-#have NA's. the code doesn't go through all the way though the list_o_johns. checking now to see if I've fixed it. 12-3-2020
+
 write.csv(master_df, "2017_prostitution_Arizona_arrests.csv")
